@@ -1,0 +1,8 @@
+{% extends 'albums/base.html' %}
+
+{% block content %}
+  {% for album in albums %}
+      <h3>{{album}}</h3>
+      <h4>{{album.artist}}</h4>
+  {% endfor %}
+{% endblock content %}
