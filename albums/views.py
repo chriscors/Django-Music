@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Album, Artist
 from .forms import AlbumForm
 
@@ -16,16 +16,24 @@ def album_new(request):
 
         # bind it to the albumform
         if form.is_valid():
-            Album.title = form.cleaned_data['title']
-            Album.genre = form.cleaned_data['genre']
+            tit = form.cleaned_data['title']
+            gen = form.cleaned_data['genre']
 
-            artist, new = Artist.objects.get_or_create(
+            art, new = Artist.objects.get_or_create(
                 name=form.cleaned_data['artist'])
 
-            Album.artist = artist
-
-            form.save()
+            Album.objects.create(title=tit, genre=gen, artist=art)
         # return redirect()  # finish filling this out
-    form = AlbumForm
+    form = AlbumForm()
 
     return render(request, 'albums/album_edit.html', {'form': form})
+
+
+def album_details(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+
+    return render(request, 'albums/album_details.html', {'album': album})
+
+
+def album_edit(request, pk):
+    return render(request, 'albums/album_edit.html')

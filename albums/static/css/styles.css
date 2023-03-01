@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.card {
+  height: 100%;
+}
+
+.card-header-title {
+  text-overflow: ellipsis;
+}

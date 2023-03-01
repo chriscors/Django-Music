@@ -1,0 +1,24 @@
+{% extends 'albums/base.html' %}
+
+{% block content %}
+  <div class="column">
+    <div class="card">
+      <header class="card-header">
+        <h3 class="card-header-title">
+          {{album}}
+        </h3>
+        <button class="card-header-icon" aria-label="edit" onclick="location.href={% url "album_edit" album.pk %};">
+          <span class="icon">
+            <i class="fas fa-pen-to-square" aria-hidden="true"></i>
+          </span>
+        </button>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <h4>{{album.artist}}</h4>
+          <h5>{{album.genre}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
