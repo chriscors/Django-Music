@@ -6,7 +6,8 @@ from django.utils.text import slugify
 
 def album_list(request):
     albums = Album.objects.all().order_by("title")
-    return render(request, 'albums/album_list.html', {'albums': albums})
+    return render(request, 'albums/album_list.html',
+                  {'albums': albums, 'title': 'All Albums'})
 
 
 def album_new(request, album=None):
@@ -69,8 +70,9 @@ def album_edit(request, pk):
     return render(request, 'albums/album_edit.html', {'form': form})
 
 
-def artist_list(request, artist):
-    albums = Album.objects.get(artist=artist)
+def artist_list(request, slug):
+    artist = Artist.objects.get(slug=slug)
+    albums = Album.objects.filter(artist=artist)
     return render(request, 'albums/artist_list.html',
                   {'albums': albums, 'title': f'{albums[0].artist} Albums'})  # THIS IS WHERE YOU LEFT OFF
 

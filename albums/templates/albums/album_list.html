@@ -1,9 +1,10 @@
 {% extends 'albums/base.html' %}
 {% block title %}
+  <h1 class="py-3">{{title}}</h1>
 
 {% endblock title %}
 {% block content %}
-<h1>Albums</h1>
+
   <div class="columns is-flex-wrap-wrap px-4">
     {% for album in albums %}
       <div class="column is-one-quarter">
