@@ -1,16 +1,14 @@
 {% extends 'albums/base.html' %}
-{% block title %}
 
-{% endblock title %}
-{% block albums %}
-<h1>Albums</h1>
+{% block content %}
+<h1>{{album.artist}} Albums</h1>
   <div class="columns is-flex-wrap-wrap px-4">
     {% for album in albums %}
       <div class="column is-one-quarter">
         <div class="card">
           <header class="card-header">
             <h3 class="card-header-title">
-              <a href="{% url "artist_list" album.artist %}">{{album.artist}}</a>
+              <a href="{% url "album_details" album.pk %}">{{album.artist}}</a>
             </h3>
             <a class="card-header-icon" aria-label="edit" href="{% url "album_edit" album.pk %}">
               <span class="icon">
@@ -28,4 +26,4 @@
       </div>
     {% endfor %}
   </div>
-{% endblock %}
+{% endblock content %}

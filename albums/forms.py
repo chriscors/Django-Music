@@ -10,9 +10,8 @@ class AlbumForm(forms.Form):
     genre = forms.ChoiceField(
         label="Genre:", choices=Album.Genre.choices, required=False)
 
-    # class Meta:
-    #     model = Album
-    #     fields = ["title", "artist", "genre"]
-    # widgets = {
-    #     'title': forms.CharField(attrs={'class': 'input'})
-    # }
+
+class AlbumFormModel(forms.ModelForm):
+    class Meta:
+        model = Album
+        fields = ["title", "artist", "genre"]
