@@ -9,9 +9,11 @@ def album_list(request):
 
 
 def album_new(request):
+    print(request.method)
     if request.method == 'POST':
         # if the page is reloading with data passed through the form
         form = AlbumForm(request.POST)
+
         # bind it to the albumform
         if form.is_valid():
             Album.title = form.cleaned_data['title']
@@ -25,4 +27,5 @@ def album_new(request):
             form.save()
         # return redirect()  # finish filling this out
     form = AlbumForm
+
     return render(request, 'albums/album_edit.html', {'form': form})
