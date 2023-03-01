@@ -6,14 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>Music Library</title>
   </head>
-  <body class = "has-background-black">
-    <header class = "py-5">
-      <h1 class = "title has-text-primary">Music Library</h1>
+  <body class = "has-background-black" style = "height:100vw">
+    <header class = "columns py-5 px-2 title is-mobile"></div>
+      <div class="column"> 
+          <h1><a href={% url "album_list" %} class = "has-text-primary">Music Library</a></h1>
+      </div>
+      <div class="column has-text-right px-n">
+        <a href={% url "album_new" %} class="button is-primary">New Album</a>
+      </div>
     </header>
-    <main>
+    <main class = "px-2 has-text-white">
       {% block content %}{% endblock content %}
     </main>
   </body>

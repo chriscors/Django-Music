@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include('debug_toolbar.urls')),
     path('', views.album_list, name='album_list'),
+    path("album/new", views.album_new, name="album_new")
 ]
