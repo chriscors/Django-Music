@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Album, Artist
 from .forms import AlbumForm
+from django.utils.text import slugify
 
 
 def album_list(request):
@@ -20,6 +21,8 @@ def album_new(request, album=None):
 
             art, new = Artist.objects.get_or_create(
                 name=form.cleaned_data['artist'])
+
+            art.slug = slugify(art.name, True) if new else None
 
             album = Album.objects.create(title=tit, genre=gen, artist=art)
         return redirect('album_detail', pk=album.pk)
@@ -70,3 +73,8 @@ def artist_list(request, artist):
     albums = Album.objects.get(artist=artist)
     return render(request, 'albums/artist_list.html',
                   {'albums': albums, 'title': f'{albums[0].artist} Albums'})  # THIS IS WHERE YOU LEFT OFF
+
+
+def album_delete(request, pk):
+    Album.objects.get(pk=pk).delete()
+    return redirect(request, 'albums/album_list.html')

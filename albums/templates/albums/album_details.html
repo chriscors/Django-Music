@@ -7,11 +7,16 @@
         <h3 class="card-header-title">
           {{album}}
         </h3>
-        <button class="card-header-icon" aria-label="edit" onclick="location.href={% url "album_edit" album.pk %};">
+        <a class="card-header-icon" aria-label="edit" href="{% url "album_delete" album.pk %}">
+          <span class="icon">
+            <i class="fas fa-solid fa-trash" aria-hidden="true"></i>
+          </span>
+        </a>
+        <a class="card-header-icon" aria-label="edit" href="{% url "album_edit" album.pk %}">
           <span class="icon">
             <i class="fas fa-pen-to-square" aria-hidden="true"></i>
           </span>
-        </button>
+        </a>
       </header>
       <div class="card-content">
         <div class="content">
