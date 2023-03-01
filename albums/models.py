@@ -1,22 +1,23 @@
 from django.db import models
 
 
-# class Artist(models.Model):
-#     name = models.CharField(max_length=50)
+class Artist(models.Model):
+    name = models.CharField(max_length=50)
 
-GENRE_CHOICES = []
+    def __str__(self):
+        return self.name
 
 
 class Album(models.Model):
     class Genre(models.TextChoices):
-        ROCK = 'ROCK', 'Rock'
-        ALT = 'ALT', 'Alternative'
-        POP = 'POP', 'Pop'
-        RAP = 'RAP', 'Hip-Hop/Rap'
-        COUNTRY = 'COUNTRY', 'Country'
+        ROCK = 'Rock', 'Rock'
+        ALT = 'Alt', 'Alternative'
+        POP = 'Pop', 'Pop'
+        RAP = 'Rap', 'Hip-Hop/Rap'
+        COUNTRY = 'Country', 'Country'
 
     title = models.CharField(max_length=250)
-    artist = models.CharField(max_length=50)
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     genre = models.CharField(
         max_length=8,
         choices=Genre.choices,
