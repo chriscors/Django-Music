@@ -10,6 +10,18 @@ class AlbumForm(forms.Form):
     genre = forms.ChoiceField(
         label="Genre:", choices=Album.Genre.choices, required=False)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['title'].widget.attrs['class'] = 'input'
+        # self.fields['title'].label.widget.attrs['class'] = 'label'
+
+        self.fields['artist'].widget.attrs['class'] = 'input'
+        # self.fields['artist'].label.widget.attrs['class'] = 'label'
+
+        self.fields['genre'].widget.attrs['class'] = 'select'
+        # self.fields['genre'].label.widget.attrs['class'] = 'label'
+
 
 class AlbumFormModel(forms.ModelForm):
     class Meta:

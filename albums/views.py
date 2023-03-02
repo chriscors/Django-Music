@@ -26,7 +26,7 @@ def album_new(request, album=None):
             art.slug = slugify(art.name, True) if new else None
 
             album = Album.objects.create(title=tit, genre=gen, artist=art)
-        return redirect('album_detail', pk=album.pk)
+        return redirect('album_details', pk=album.pk)
     form = AlbumForm()
 
     return render(request, 'albums/album_edit.html', {'form': form})
@@ -73,8 +73,8 @@ def album_edit(request, pk):
 def artist_list(request, slug):
     artist = Artist.objects.get(slug=slug)
     albums = Album.objects.filter(artist=artist)
-    return render(request, 'albums/artist_list.html',
-                  {'albums': albums, 'title': f'{albums[0].artist} Albums'})  # THIS IS WHERE YOU LEFT OFF
+    return render(request, 'albums/album_list.html',
+                  {'albums': albums, 'title': f'{artist.name} Albums'})  # THIS IS WHERE YOU LEFT OFF
 
 
 def album_delete(request, pk):

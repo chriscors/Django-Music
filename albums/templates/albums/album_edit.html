@@ -4,8 +4,28 @@
   <form action="" method="post">
     {% csrf_token %}
 
-    {{form}}
-    <button class="button is-primary" type="submit">Save</button>
+    <div class="columns">
+      <div class="field column is-narrow mb-0">
+        {{ form.title.label_tag }}
+        {{ form.title }}
+      </div>
+      <div class="field column is-narrow mb-0">
+        {{ form.artist.label_tag }}
+        {{ form.artist }}
+      </div>
+      <div class="field column is-narrow mb-0">
+        {{ form.genre.label_tag }}
+        {{ form.genre }}
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-narrow">
+        <button class="button is-primary" id="submit-button" type="submit">Save</button>
+      </div>
+      <div class="column is-narrow">
+        <button class="button is-secondary" id="cancel-button" onclick="history.back()"> Cancel</button>
+      </div>
+    </div>
 
   </form>
 {% endblock content %}

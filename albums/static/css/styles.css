@@ -15,3 +15,17 @@ body {
 .card-header-title {
   text-overflow: ellipsis;
 }
+
+.input,
+.select {
+  width: 150px;
+  display: block;
+}
+
+#id_genre {
+  height: 40px;
+}
+
+form button {
+  width: 100px;
+}
