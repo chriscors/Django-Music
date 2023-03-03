@@ -17,14 +17,13 @@ from django.contrib import admin
 from django.urls import include, path
 from albums import views
 
-
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('__debug__/', include('debug_toolbar.urls')),
-    path('', views.album_list, name='album_list'),
-    path("album/new", views.album_new, name="album_new"),
-    path('album/<int:pk>', views.album_details, name='album_details'),
-    path('album/<int:pk>/edit/', views.album_edit, name='album_edit'),
-    path('<slug:slug>', views.artist_list, name='artist_list'),
-    path('album/<int:pk>/delete/', views.album_delete, name='album_delete')
+  path('admin/', admin.site.urls),
+  path('__debug__/', include('debug_toolbar.urls')),
+  path('', views.album_list, name='album_list'),
+  path("album/new", views.album_new, name="album_new"),
+  path('album/<int:pk>', views.album_details, name='album_details'),
+  path('album/<int:pk>/edit/', views.album_edit, name='album_edit'),
+  path('artist/<slug:slug>', views.artist_list, name='artist_list'),
+  path('album/<int:pk>/delete/', views.album_delete, name='album_delete')
 ]
