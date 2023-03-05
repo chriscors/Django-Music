@@ -4,6 +4,29 @@
   <div class="column">
     <div class="card">
       <header class="card-header">
+        <div class="card-image">
+          <figure class="image is4by3">
+            {% if album.artwork %}
+              {{album.artwork}}
+            {% else %}
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 504.41 344.84" style="enable-background:new 0 0 504.41 344.84;" xml:space="preserve">
+                <style type="text/css">
+                  .st0{fill:#FFFFFF;}
+                  .st1{fill:#4D4D4D;}
+                </style>
+                <rect x="0" class="st0" width="504.41" height="344.84"/>
+                <g>
+                  <circle class="st1" cx="300.45" cy="102.42" r="25.5"/>
+                  <path class="st1" d="M40.21,38.92v267h424v-267H40.21z M452.2,293.92h-8.02l-87.73-94.5l-68.93,74.25L182.46,146.92l-121.86,147
+                    h-8.39v-243h400V293.92z"/>
+                </g>
+              </svg>
+            {% endif %}
+
+            {% comment %} <img src="" alt=""> {% endcomment %}
+          </figure>
+        </div>
         <h3 class="card-header-title">
           {{album}}
         </h3>

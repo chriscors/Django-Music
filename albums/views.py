@@ -19,13 +19,15 @@ def album_new(request, album=None):
         if form.is_valid():
             tit = form.cleaned_data['title']
             gen = form.cleaned_data['genre']
+            artwork = form.cleaned_data['artwork']
 
             art, new = Artist.objects.get_or_create(
                 name=form.cleaned_data['artist'])
 
             art.slug = slugify(art.name, True) if new else None
 
-            album = Album.objects.create(title=tit, genre=gen, artist=art)
+            album = Album.objects.create(
+                title=tit, genre=gen, artist=art, artwork=artwork)
         return redirect('album_details', pk=album.pk)
     form = AlbumForm()
 
@@ -40,7 +42,7 @@ def album_details(request, pk):
 
 def album_edit(request, pk):
     album = get_object_or_404(Album, pk=pk)
-    print(album)
+
     if request.method == 'POST':
         # if the page is reloading with edited data passed through the form
         form = AlbumForm(request.POST)
@@ -54,6 +56,8 @@ def album_edit(request, pk):
                 name=form.cleaned_data['artist'])
 
             album.artist = art
+
+            album.artwork = form.cleaned_data['artwork']
 
             album.save()
         return redirect('album_details', pk=album.pk)

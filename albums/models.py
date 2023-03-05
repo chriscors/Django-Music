@@ -24,6 +24,8 @@ class Album(models.Model):
         choices=Genre.choices,
         default="---------"
     )
+    artwork = models.ImageField(upload_to='images')
+
     # artist = models.ForeignKey(
     #     Artist, on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now_add=True)

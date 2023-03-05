@@ -9,6 +9,7 @@ django-extensions = "*"
 django-debug-toolbar = "*"
 django-widget-tweaks = "*"
 requests = "*"
+pillow = "*"
 
 [dev-packages]
 autopep8 = "*"
