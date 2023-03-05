@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='album',
             name='genre',
-            field=models.CharField(choices=[('Rock', 'Rock'), ('Alt', 'Alternative'), ('Pop', 'Pop'), ('Rap', 'Hip-Hop/Rap'), ('Country', 'Country')], default='---------', max_length=8),
+            field=models.CharField(choices=[('Rock', 'Rock'), ('Alt', 'Alternative'), ('Pop', 'Pop'), (
+                'Rap', 'Hip-Hop/Rap'), ('Country', 'Country')], default='---------', max_length=8),
         ),
     ]

@@ -22,13 +22,14 @@ class Album(models.Model):
     genre = models.CharField(
         max_length=8,
         choices=Genre.choices,
-        default="---------"
+        default="---------",
+        null=True
     )
-    artwork = models.ImageField(upload_to='images')
-
+    artwork = models.ImageField(upload_to='images', blank=True, null=True)
     # artist = models.ForeignKey(
     #     Artist, on_delete=models.CASCADE)
-    creation_date = models.DateTimeField(auto_now_add=True)
+    creation_date = models.DateTimeField(
+        auto_now_add=True)
 
     def __str__(self):
         return self.title
