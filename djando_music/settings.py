@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
   'd4dd7417-8968-4aef-9814-bfc28d7ee66c.id.repl.co', '10.30.18.63',
-  'django-music.chriscors.repl.co', 'https://django-music.chriscors.repl.co'
+  'django-music.chriscors.repl.co', 'https://django-music.chriscors.repl.co', '127.0.0.1'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
