@@ -29,9 +29,9 @@ def album_new(request, album=None):
             art, new = Artist.objects.get_or_create(
                 name=form.cleaned_data['artist'])
 
-            art.slug = slugify(art.name, True) if (
-                new or art.slug is None) else None
-            art.save()
+            if new or art.slug is None:
+                art.slug = slugify(art.name, True)
+                art.save()
 
             album = Album.objects.create(
                 title=tit, genre=gen, artist=art, artwork=artwork)
@@ -63,9 +63,9 @@ def album_edit(request, pk):
             art, new = Artist.objects.get_or_create(
                 name=form.cleaned_data['artist'])
 
-            art.slug = slugify(art.name, True) if (
-                new or art.slug is None) else None
-            art.save()
+            if new or art.slug is None:
+                art.slug = slugify(art.name, True)
+                art.save()
 
             album.artist = art
 
