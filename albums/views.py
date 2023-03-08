@@ -90,4 +90,4 @@ def artist_list(request, slug):
 
 def album_delete(request, pk):
     Album.objects.get(pk=pk).delete()
-    return redirect(request, 'albums/album_list.html')
+    return redirect('albums/album_list.html')
