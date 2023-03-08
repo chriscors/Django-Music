@@ -26,57 +26,57 @@ SECRET_KEY = 'django-insecure-q9o#=niu+z%1ma&pr@aiame!fkq^j8#24j=*e3&&s3@2uf+uop
 DEBUG = True
 
 ALLOWED_HOSTS = [
-  'd4dd7417-8968-4aef-9814-bfc28d7ee66c.id.repl.co', '10.30.18.63',
-  'django-music.chriscors.repl.co', 'https://django-music.chriscors.repl.co',
-  '127.0.0.1', '10.30.18.114', 'albums.chriscorsi.com'
+    'd4dd7417-8968-4aef-9814-bfc28d7ee66c.id.repl.co', '10.30.18.63',
+    'django-music.chriscors.repl.co', 'https://django-music.chriscors.repl.co',
+    '127.0.0.1', '10.30.18.114', 'albums.chriscorsi.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-  'https://*.django-music.chriscors.repl.co', 'https://*.127.0.0.1',
-  'https://albums.chriscorsi.com'
+    'https://*.django-music.chriscors.repl.co', 'https://*.127.0.0.1',
+    'https://albums.chriscorsi.com'
 ]
 
 # Application definition
 
 INSTALLED_APPS = [
-  'django_extensions',
-  'debug_toolbar',
-  'django.contrib.admin',
-  'django.contrib.auth',
-  'django.contrib.contenttypes',
-  'django.contrib.sessions',
-  'django.contrib.messages',
-  'django.contrib.staticfiles',
-  'albums',
+    'django_extensions',
+    'debug_toolbar',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'albums',
 ]
 
 MIDDLEWARE = [
-  'debug_toolbar.middleware.DebugToolbarMiddleware',
-  'django.middleware.security.SecurityMiddleware',
-  'django.contrib.sessions.middleware.SessionMiddleware',
-  'django.middleware.common.CommonMiddleware',
-  'django.middleware.csrf.CsrfViewMiddleware',
-  'django.contrib.auth.middleware.AuthenticationMiddleware',
-  'django.contrib.messages.middleware.MessageMiddleware',
-  'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'djando_music.urls'
 
 TEMPLATES = [
-  {
-    'BACKEND': 'django.template.backends.django.DjangoTemplates',
-    'DIRS': ['templates'],
-    'APP_DIRS': True,
-    'OPTIONS': {
-      'context_processors': [
-        'django.template.context_processors.debug',
-        'django.template.context_processors.request',
-        'django.contrib.auth.context_processors.auth',
-        'django.contrib.messages.context_processors.messages',
-      ],
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
     },
-  },
 ]
 
 WSGI_APPLICATION = 'djando_music.wsgi.application'
@@ -85,29 +85,29 @@ WSGI_APPLICATION = 'djando_music.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': BASE_DIR / 'db.sqlite3',
-  }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-  {
-    'NAME':
-    'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-  },
-  {
-    'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-  },
-  {
-    'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-  },
-  {
-    'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-  },
+    {
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
 ]
 
 # Internationalization
@@ -127,7 +127,7 @@ USE_TZ = True
 STATIC_URL = 'albums/static/'
 
 STATICFILES_DIRS = [
-  BASE_DIR / "albums/static",
+    BASE_DIR / "albums/static",
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -135,9 +135,9 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 INTERNAL_IPS = [
-  # ...
-  "127.0.0.1",
-  # ...
+    # ...
+    "127.0.0.1",
+    # ...
 ]
 
 # Set custom form template

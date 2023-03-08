@@ -9,7 +9,7 @@ class AlbumForm(forms.Form):
         label="Artist Name:", max_length=150, required=True)
     genre = forms.ChoiceField(
         label="Genre:", choices=Album.Genre.choices, required=False)
-    artwork = forms.ImageField(label="Album Artwork:")
+    artwork = forms.ImageField(label="Album Artwork:", required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

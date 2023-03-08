@@ -11,15 +11,20 @@ def album_list(request):
 
 
 def album_new(request, album=None):
+    print(request)
     if request.method == 'POST':
         # if the page is reloading with data passed through the form
-        form = AlbumForm(request.POST)
+        form = AlbumForm(request.POST, request.FILES)
 
         # bind it to the albumform
+        print(form.is_valid)
+        print(request)
+        print(form.errors)
+
         if form.is_valid():
             tit = form.cleaned_data['title']
             gen = form.cleaned_data['genre']
-            artwork = form.cleaned_data['artwork']
+            artwork = request.FILES['artwork']
 
             art, new = Artist.objects.get_or_create(
                 name=form.cleaned_data['artist'])
@@ -28,7 +33,9 @@ def album_new(request, album=None):
 
             album = Album.objects.create(
                 title=tit, genre=gen, artist=art, artwork=artwork)
-        return redirect('album_details', pk=album.pk)
+            print(album)
+            breakpoint()
+            return redirect('album_details', pk=album.pk)
     form = AlbumForm()
 
     return render(request, 'albums/album_edit.html', {'form': form})
@@ -45,8 +52,8 @@ def album_edit(request, pk):
 
     if request.method == 'POST':
         # if the page is reloading with edited data passed through the form
-        form = AlbumForm(request.POST)
-
+        form = AlbumForm(request.POST, request.FILES)
+        print(form.is_valid)
         # bind it to the albumform
         if form.is_valid():
             album.title = form.cleaned_data['title']
@@ -57,7 +64,7 @@ def album_edit(request, pk):
 
             album.artist = art
 
-            album.artwork = form.cleaned_data['artwork']
+            album.artwork = request.FILES['artwork']  # form.instance
 
             album.save()
         return redirect('album_details', pk=album.pk)
