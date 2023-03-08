@@ -29,12 +29,13 @@ def album_new(request, album=None):
             art, new = Artist.objects.get_or_create(
                 name=form.cleaned_data['artist'])
 
-            art.slug = slugify(art.name, True) if new else None
+            art.slug = slugify(art.name, True) if (
+                new or art.slug is None) else None
+            art.save()
 
             album = Album.objects.create(
                 title=tit, genre=gen, artist=art, artwork=artwork)
-            print(album)
-            breakpoint()
+
             return redirect('album_details', pk=album.pk)
     form = AlbumForm()
 
@@ -62,9 +63,16 @@ def album_edit(request, pk):
             art, new = Artist.objects.get_or_create(
                 name=form.cleaned_data['artist'])
 
+            art.slug = slugify(art.name, True) if (
+                new or art.slug is None) else None
+            art.save()
+
             album.artist = art
 
-            album.artwork = request.FILES['artwork']  # form.instance
+            try:
+                album.artwork = request.FILES['artwork']
+            except:
+                print('An exception occurred')
 
             album.save()
         return redirect('album_details', pk=album.pk)
